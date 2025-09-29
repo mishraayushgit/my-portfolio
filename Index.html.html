@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ayush Kumar Mishra | Data Scientist & ML Engineer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary-dark: #1f3a5f;
+      --secondary-accent: #00bcd4;
+      --background-light: #f4f7f9;
+      --text-dark: #333;
+      --card-bg: #fff;
+      --font-body: 'Inter', Arial, sans-serif;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--background-light);
+      margin: 0;
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-top: 70px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    a {
+      text-decoration: none;
+      color: var(--secondary-accent);
+      transition: color 0.18s;
+    }
+    a:hover { color: var(--primary-dark); }
+    section { padding: 60px 0; }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 40px;
+      text-align: center;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--secondary-accent);
+      border-radius: 2px;
+    }
+    .header-nav {
+      background: var(--primary-dark);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      padding: 15px 0;
+      transition: top 0.3s;
+    }
+    .header-nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-nav .logo {
+      color: #fff;
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    .header-nav .nav-links a {
+      color: #fff;
+      margin-left: 18px;
+      font-weight: 500;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #1f3a5f 0%, #3a5f7d 100%);
+      color: #f4f7f9;
+      padding: 120px 0 110px 0;
+      text-align: center;
+    }
+    .hero-role {
+      font-size: 1.25rem;
+      color: var(--secondary-accent);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .hero-name {
+      font-size: 3.3rem;
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 15px;
+      line-height: 1.1;
+    }
+    .hero-tagline {
+      font-size: 1.35rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-weight: 400;
+    }
+    .hero-cta-btn {
+      display: inline-block;
+      background: var(--secondary-accent);
+      color: var(--primary-dark);
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-weight: 700;
+      margin: 0 10px;
+      transition: background 0.25s;
+      font-size: 1rem;
+    }
+    .hero-cta-btn:hover { background: #00e5ff; }
+    /* About section wider */
+    .about-me-grid {
+      display: grid;
+      grid-template-columns: 2.8fr 2fr;
+      gap: 70px;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 48px 72px 48px 72px;
+      border-radius: 22px;
+      box-shadow: 0 4px 32px #002a4522;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-text h3 {
+      color: var(--primary-dark);
+      font-size: 1.7rem;
+      margin-top: 0;
+      margin-bottom: 17px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    .about-text p {
+      color: #38426a;
+      font-size: 1.09rem;
+      margin-top: 0;
+      margin-bottom: 15px;
+      line-height: 1.75;
+      font-weight: 500;
+    }
+    .about-image-side { text-align: center;}
+    .about-avatar {
+      width: 270px;
+      height: 270px;
+      border-radius: 15px;
+      background: var(--primary-dark);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      object-fit: cover;
+      margin-bottom: 18px;
+    }
+    .about-image-side .about-caption {
+      color: #3096b1;
+      font-size: 1.07rem;
+      margin-top: 9px;
+      font-weight: 600;
+    }
+    /* Education & Skills */
+    #education-skills { background: var(--card-bg);}
+    .edu-skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      margin: 0 auto;
+      max-width: 1000px;
+    }
+    .edu-section h3, .skills-section h3 {
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 8px;
+      margin-bottom: 9px;
+    }
+    .timeline-title { font-weight: 600; color: var(--primary-dark);}
+    .timeline-subtitle { color: #456D8B; font-size: 1.06rem; margin-bottom: 2px;}
+    .timeline-date { font-size: 0.99rem; color: var(--secondary-accent); }
+    .skill-chip {
+      font-size: 1rem;
+      background: var(--secondary-accent); color: var(--primary-dark);
+      padding: 8px 18px; border-radius: 20px;
+      font-weight: 600; text-transform: uppercase;
+      margin:2px 7px 7px 0;
+      display:inline-block;
+    }
+    .skills-block { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px;}
+
+    /* Experience section */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .experience-card {
+      background: var(--card-bg);
+      padding: 25px;
+      border-radius: 12px;
+      border: 2px solid var(--background-light);
+      box-shadow: 0 6px 20px rgba(31, 58, 95, 0.05);
+      transition: transform 0.25s, box-shadow 0.22s, border-color 0.22s;
+      display: flex; flex-direction: column; height: 100%;
+    }
+    .experience-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(31, 58, 95, 0.15);
+      border-color: var(--secondary-accent);
+      background: linear-gradient(135deg, #fff 90%, #eaf8fa 100%);
+    }
+    .exp-logo {
+      width: 60px; height: 60px;
+      background: var(--secondary-accent); border-radius: 50%;
+      margin-bottom: 20px; display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; color: var(--primary-dark); box-shadow: 0 0 0 4px rgba(0,188,212,0.2);
+    }
+    .exp-role { font-size: 1.15rem; font-weight: 700; color: var(--primary-dark);}
+    .exp-company { font-size: 1rem; color: #555;}
+    .exp-date { font-size: 0.9rem; color: var(--secondary-accent); font-weight: 600;}
+    .exp-description { flex-grow: 1; margin-top: 13px; padding-top: 10px; border-top: 1px dashed #eee;}
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: repeat(2,1fr); gap:30px; max-width:1000px; margin:0 auto;}
+    .project-card {
+      background: var(--card-bg);
+      border-radius: 12px; padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.25s; display: flex; flex-direction: column; position: relative;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .pro-title { font-size: 1.25rem; font-weight: 700; color: var(--primary-dark); }
+    .pro-tools { font-size: .97rem; color: var(--secondary-accent); margin-bottom: 11px; font-weight: 600;}
+    .pro-link-row { margin-top: auto; padding-top: 15px; border-top: 1px solid #eee;}
+    .view-details-btn {
+      background: var(--primary-dark); color: #fff;
+      padding: 8px 20px; border-radius: 5px; font-weight: 600; font-size: .97rem;
+      transition: background 0.25s;
+      display:inline-block;
+      margin-right:9px;
+    }
+    .view-details-btn:hover { background: var(--secondary-accent); color: var(--primary-dark);}
+    /* Certificates */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .cert-card {
+      border: 2px solid #c0e0e8;
+      background: #f8ffff;
+      height: 100%;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cert-title { font-size: 1.1rem; font-weight: 700; color: var(--primary-dark);}
+    .cert-inst { color: #555; font-size: .97rem; margin-bottom: 15px;}
+    .cert-btn-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 22px;
+      min-height: 48px;
+    }
+    .cert-link-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--secondary-accent);
+      color: #fff;
+      padding: 10px 30px;
+      border-radius: 22px;
+      font-weight: 600;
+      font-size: 1.07rem;
+      box-shadow: 0 2px 10px #00bcd466;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.23s;
+      text-decoration: none;
+      min-width: 160px;
+    }
+    .cert-card:hover .cert-link-text { background: var(--primary-dark); color: #fff; }
+    .cert-link-text i { margin-right: 7px; font-size: 1.15rem; }
+
+    .connect-section { text-align: center; padding: 30px 0; margin-top: 30px; border-top: 2px dashed var(--secondary-accent);}
+    .connect-links a { display: inline-flex; align-items:center; font-size:1.1rem; font-weight:600; color: var(--primary-dark); margin:0 15px; padding:10px 15px; border-radius:8px; border: 2px solid var(--secondary-accent); transition: background .2s, color .2s;}
+    .connect-links a:hover { background: var(--secondary-accent); color: #fff; }
+    .connect-links i { margin-right:8px; font-size:1.25rem;}
+    .footer-section {
+      background: var(--primary-dark);
+      color: #b0c4de;
+      text-align: center;
+      padding: 30px 0;
+      font-size: .95rem;
+    }
+    .footer-section a { color: var(--secondary-accent);}
+    @media (max-width:1060px) {
+      .about-me-grid { max-width: 97vw; padding-left: 4vw; padding-right: 4vw; }
+    }
+    @media (max-width:900px) {
+      .about-me-grid, .edu-skills-grid, .experience-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr;}
+      .about-me-grid { gap:30px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-nav">
+    <div class="container">
+      <a href="#" class="logo">Ayush Kumar Mishra</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education-skills">Education & Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="resume.pdf" target="_blank">Resume</a>
+      </nav>
+    </div>
+  </header>
+  <section class="hero-section">
+    <div class="container">
+      <p class="hero-role">FOUNDER • DATA SCIENTIST • ML ENGINEER | IIT PATNA</p>
+      <h1 class="hero-name">Ayush Kumar Mishra</h1>
+      <p class="hero-tagline">
+        Motivated undergraduate, <b>Founder of two ventures</b>, dedicated to transforming data into actionable insights and robust user-centric solutions.
+      </p>
+      <div>
+        <a href="#projects" class="hero-cta-btn">View Projects</a>
+        <a href="mailto:ayushkmishraxyz@gmail.com" class="hero-cta-btn" style="background: #fff; color: var(--primary-dark);">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-me-grid">
+        <div class="about-text">
+          <h3>The Research, Analyst & ML Enthusiast</h3>
+          <p>Hey, I’m Ayush—a third-year Computer Science student at IIT Patna, obsessed with turning messy data into cool stories and practical results.</p>
+          <p>I’m always hunting for that unusual pattern in the data or testing out a new tools. I like building experiments: sometimes they spark a whole project, sometimes they just teach me something odd and useful.</p>
+          <p>During my journey with startups and hands-on data work, I've explored everything from analytics pipelines to dashboards that help real users and business teams. I get most excited when an idea finally clicks or a chaotic collaboration produces something new.</p>
+          <p>If you enjoy data hacks, side-project chaos, and thinking a bit differently about how tech & people fit together—let’s connect!</p>
+        </div>
+        <div class="about-image-side">
+          <img src="about me.webp" alt="Ayush Kumar Mishra" class="about-avatar">
+          <div class="about-caption">
+            <i class="fas fa-rocket"></i> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="education-skills" class="skills-toolkit">
+    <div class="container">
+      <h2 class="section-title">Education & Core Toolkit</h2>
+      <div class="edu-skills-grid">
+        <div class="edu-section">
+          <h3>Education Background</h3>
+          <div class="timeline-item" style="border-left: 4px solid var(--primary-dark); padding-left:10px;">
+            <div class="timeline-title"><b>B.Sc in Computer Science and Data Analytics</b></div>
+            <div class="timeline-subtitle">Indian Institute of Technology, Patna</div>
+            <div class="timeline-date">2023 - 2026</div>
+            <div class="timeline-description">
+              <ul>
+                <li>Focus on Data Science, Machine Learning, and Visualization.</li>
+                <li>Strong academic foundation in core programming and statistical concepts.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="skills-section">
+          <h3>Technical Skills</h3>
+          <p style="font-style:italic;">A versatile set of tools for end-to-end data solutions.</p>
+          <div class="skills-block">
+            <span class="skill-chip">Python (Pandas, Plotly, Scikit-learn)</span>
+            <span class="skill-chip">SQL (MySQL, Oracle)</span>
+            <span class="skill-chip">Power BI / Tableau</span>
+            <span class="skill-chip">Machine Learning (TensorFlow, KNN, PCA)</span>
+            <span class="skill-chip">MS Excel (Financial Modeling)</span>
+            <span class="skill-chip">Data Cleaning & Wrangling</span>
+            <span class="skill-chip">HTML/CSS/JS</span>
+            <span class="skill-chip">DBT / Snowflake (Familiar)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="experience" class="experience-section">
+    <div class="container">
+      <h2 class="section-title">Entrepreneurial Journey & Experience</h2>
+      <div class="experience-grid">
+        <div class="experience-card">
+          <div class="exp-logo"><i class="fas fa-lightbulb"></i></div>
+          <div class="exp-role">Co-Founder & Lead Analyst</div>
+          <div class="exp-company">Startup 1</div>
+          <div class="exp-date">Ongoing</div>
+          <div class="exp-description">
+            <ul>
+              <li>Led the <b>data strategy</b> and analytics pipeline for the consumer-facing app.</li>
+              <li>Integrated user feedback data to drive <b>product development</b> decisions.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-card">
+          <div class="exp-logo"><i class="fas fa-cubes"></i></div>
+          <div class="exp-role">Co-Founder & Technical Lead</div>
+          <div class="exp-company">Startup 2</div>
+          <div class="exp-date">Ongoing</div>
+          <div class="exp-description">
+            <ul>
+              <li>Designed the <b>technical architecture</b> and cloud infrastructure.</li>
+              <li>Applied analytical models to <b>optimize operations</b> and ensure platform scalability.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-card">
+          <div class="exp-logo"><i class="fas fa-heartbeat"></i></div>
+          <div class="exp-role">Data and Research Analyst Intern</div>
+          <div class="exp-company">HealthTech Analytics</div>
+          <div class="exp-date">June 2025 - Sep 2025</div>
+          <div class="exp-description">
+            <ul>
+              <li>Extracted and analyzed healthcare datasets to uncover critical trends.</li>
+              <li>Used <b>Power BI, Python, and Plotly</b> to create impactful data visualizations for reports.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="pro-content">
+            <div class="pro-title">Bihar's Health Sector Dashboard</div>
+            <div class="pro-tools">Tools: Power BI, EDA, Data Visualization</div>
+            <p>Built an interactive <b>Power BI</b> dashboard to analyze and visualize the healthcare landscape of Bihar. Cleaned and transformed raw datasets and designed dashboards with <b>KPIs</b> to track health performance.</p>
+          </div>
+          <div class="pro-link-row">
+            <a href="https://github.com/ayushkmishra/bihar-health-dashboard" target="_blank" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="pro-content">
+            <div class="pro-title">EV Sales Dashboard – Power BI & Python</div>
+            <div class="pro-tools">Tools: Python (Pandas), Power BI, DAX, Data Modeling</div>
+            <p>Developed an interactive dashboard to analyze EV sales trends across Indian states and categories. Collected and cleaned raw sales data using <b>Python (Pandas)</b> and created calculated columns and <b>DAX measures</b> to derive meaningful KPIs.</p>
+          </div>
+          <div class="pro-link-row">
+            <a href="https://github.com/ayushkmishra/ev-dashboard" target="_blank" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="pro-content">
+            <div class="pro-title">ML Algorithms Implementation</div>
+            <div class="pro-tools">Tools: scikit-learn, TensorFlow, Python</div>
+            <p>Implemented and evaluated core Machine Learning algorithms from scratch, including <b>K-Nearest Neighbors (KNN), Decision Trees, Naive Bayes, and Principal Component Analysis (PCA)</b> to showcase foundational ML expertise.</p>
+          </div>
+          <div class="pro-link-row">
+            <a href="https://github.com/ayushkmishra/ml-algorithms" target="_blank" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="pro-content">
+            <div class="pro-title">Stock Market Analysis (Excel Modeling)</div>
+            <div class="pro-tools">Tools: MS Excel, Financial Modeling, Visualization</div>
+            <p>Conducted financial analysis on stock trends using <b>Excel-based financial modeling</b> and visualization. The analysis focused on assessing risk, summarizing stock trends, and applying key financial metrics and formulae.</p>
+          </div>
+          <div class="pro-link-row">
+            <a href="#" target="_blank" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="certs" style="background:var(--card-bg);">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <div class="certs-grid">
+        <div class="cert-card">
+          <div class="cert-title">Building and Evaluating Data Agents</div>
+          <div class="cert-inst">DeepLearning.AI · Issued Sep 2025</div>
+          <div class="cert-btn-row">
+            <a href="#" class="cert-link-text" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              <span style="margin-left:7px;">View Certificate</span>
+            </a>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-title">Machine Learning for Earth Observation (ML-EO)</div>
+          <div class="cert-inst">EO College · Issued Sep 2025</div>
+          <div class="cert-btn-row">
+            <a href="#" class="cert-link-text" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              <span style="margin-left:7px;">View Certificate</span>
+            </a>
+          </div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-title">Power BI for Beginners</div>
+          <div class="cert-inst">Simplilearn · Issued Jan 2025</div>
+          <div class="cert-btn-row">
+            <a href="#" class="cert-link-text" target="_blank">
+              <i class="fas fa-external-link-alt"></i>
+              <span style="margin-left:7px;">View Certificate</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="connect-section">
+        <h3>Let's Connect and Collaborate 🤝</h3>
+        <div class="connect-links">
+          <a href="mailto:Aayush_mishra2004@outlook.com" target="_blank"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://www.linkedin.com/in/ayush-kumar-mishra-48b80023a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://www.instagram.com/ayushkmishraxyz/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer-section">
+    <div class="container">
+      <p style="margin:0;">© 2025 Ayush Kumar Mishra | Data Science & ML Portfolio | Designed for a Premium Feel</p>
+    </div>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var header = document.querySelector('.header-nav');
+      var lastScrollTop = 0;
+      var scrollThreshold = 80;
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (Math.abs(scrollTop - lastScrollTop) <= 5) return;
+        if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+          header.style.top = '-100px';
+        } else {
+          header.style.top = '0';
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      }, false);
+    });
+  </script>
+</body>
+</html>
+
+
+
